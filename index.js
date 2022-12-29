@@ -17,7 +17,7 @@ const server = http.createServer(app);
 const io = socketIO(server)
 
 // this is circuit (on means we will receive from server)
-io.on("connection", (socket) => {
+io.on('connection', (socket) => {
     console.log("New Connection from server")
 
     // user will be joined
@@ -29,7 +29,7 @@ io.on("connection", (socket) => {
     })
 
     socket.on('message', ({message, id}) => {
-        io.emit('sendMessage', { user: users[id], message, id })
+        io.emit('sendMessage', { user: users[id], message, id }) 
     })
 
     socket.on('disconnected', () => {
